@@ -1,3 +1,11 @@
+//Hoisting means we can use function or variable in a code before it is actually being declared
+console.log(k);
+var k=0;
+
+//Temporal Dead Zone:  The time till the let variable is hoisted and initialized.
+//The temporal dead zone ends when the let variable is initialized.
+//let k=0;
+
 //Anything defined outside the function is termed to be global as soon as js is executed global execution context and global object is created. And window here refers to the global object
 var a=10;
 function a(){
@@ -89,6 +97,41 @@ l();
 
 //.....
 // p();
+
+function outest(b){
+       var c=20;
+       function outer(){
+              let m=10;
+              function inner(){
+                     console.log(m,b,c);
+              }
+              return inner;
+       }
+       return outer;
+}
+let m=60; //It makes no change to the closure its just that we have declared a new variable.
+
+let out=outest("Hello world")();
+out();
+
+//Closure is used in data hiding and encapsulation
+function counter(){
+       var count=0;
+       this.increment= function(){
+              count++;
+              console.log(count);
+       }
+       this.decrement= function(){
+              count--;
+              console.log(count);
+       }
+}
+
+var counter1=new counter();
+counter1.increment();
+counter1.increment();
+counter1.decrement();
+
 
 for(let i=1;i<=5;i++){
        setTimeout(() => {
