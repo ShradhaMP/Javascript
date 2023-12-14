@@ -10,7 +10,7 @@ var b=function(){
        console.log("b called");
 }
 
-//Difference between function hoisting and function expression is hoisting.
+//Difference between function hoisting and function expression hoisting.
 
 //Anonymous function-->Function without the name
 //Anonymous function is used as function expression not as the function statement
